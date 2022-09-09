@@ -26,12 +26,12 @@ function getMiddle(s)
 }
 
 ## Work experience
-    [https://andreysmekhunov.github.io/rsschool-cv/momentum/]
-    [https://andreysmekhunov.github.io/rsschool-cv/travel/]
-    [https://andreysmekhunov.github.io/rsschool-cv/eldritch-codejam/]
+    [учебный проект "Моментум"](https://andreysmekhunov.github.io/rsschool-cv-stage0/momentum/)
+    [учебный проект Travel](https://andreysmekhunov.github.io/rsschool-cv-stage0/travel/)
+    [учебный проект Eldritch Codejam](https://andreysmekhunov.github.io/rsschool-cv-stage0/eldritch-codejam/)
 
 ## Образование (включая пройденные курсы и тренинги)
-    South Federal Unversity, mathematist
+    South Federal Unversity, mathematist 
 
 ## English 
 Beginner 
