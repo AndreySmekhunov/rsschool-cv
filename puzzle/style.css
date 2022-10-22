@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
+
+body {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+}
+
+.playField {
+    flex-wrap: wrap;
+    display: flex;
+    width: 600px;
+    height: 600px;
+    position: relative;
+    background-color: blue;
+    border-radius: 10px;
+    border: 2px solid black;
+    z-index: 1;
+
+}
+
+.buttonBox {
+  flex-wrap: wrap;
+  width: 150px;
+  display: flex;
+  align-content: space-around;
+  position: relative;
+  height: 600px;
+  border: 2px solid black;
+
+}
+
+.timerBox {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100px;
+  width: 90%; 
+  text-align: center;
+  /* justify-content: space-around; */
+  align-content: center;
+  border-radius: 10px;
+  border: 2px solid white;
+  background-color: #00a0a0;
+  box-shadow: 10px 10px 5px 2px #005050;
+}
+
+.boxetoLeft {
+  text-align: right;
+  height: 30px;
+  width: 60%;
+  
+}
+.boxetoRight {
+  text-align: left;
+  text-justify: center;
+  height: 30px;
+  width: 35%;
+  margin:auto;
+}
+
+.selectSize {
+  height: 100px;
+  width: 100%; 
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  line-height: 1.75;
+  border: 2px solid white;
+  background-color: #00a0a0;
+  box-shadow: 10px 10px 5px 2px #005050;
+}
+
+.button {
+  font-size: 1.25em;
+  height: 100px;
+  width: 90%;  
+  text-align: center;
+  border-radius: 10px;
+  line-height: 1.75;
+  border: 2px solid white;
+  background-color: #00a0a0;
+  box-shadow: 10px 10px 5px 2px #005050;
+  color: #fff;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #00bfbf;
+}
+.button:active {
+  transform: translate(10px,10px);
+  box-shadow: none;
+}
+
+.tag {
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 2px #500000;
+    width: 140px;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    padding: 40px auto;
+    font-size: 5em;
+    line-height: 150%;
+    font-style: bold;
+    cursor: pointer;
+    color: #fff;
+    background-color: #ff0000;
+    border: 1px solid #ffffff;
+    
+
+}
+.empty {
+    position: relative;
+margin:none;
+border:none;
+background-color: #0000ff;
+width: 148px;
+heigth: 148px;
+}
