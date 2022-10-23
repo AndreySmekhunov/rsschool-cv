@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
+
+body {
+  padding:10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  /* min-height: 100vh; */
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+}
+
+.playField {
+    font-size: 16px;
+    flex-wrap: wrap;
+    display: flex;
+    width: 600px;
+    height: 600px;
+    position: relative;
+    background-color: #d0d0d0;
+    border-radius: 10px;
+    border: 3px solid #005050;
+    /* z-index: 1; */
+
+}
+
+.buttonBox {
+  flex-wrap: wrap;
+  width: 150px;
+  display: flex;
+  align-content: space-around;
+  position: relative;
+  height: 600px;
+}
+
+.timerBox {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100px;
+  width: 135px; 
+  text-align: center;
+  /* justify-content: space-around; */
+  align-content: center;
+  border-radius: 10px;
+  border: 2px solid white;
+  background-color: #00a0a0;
+  box-shadow: 10px 10px 5px 2px #005050;
+}
+.timerBox:hover {
+  background-color: #00bfbf;
+}
+.timerBox:active {
+  transform: translate(10px,10px);
+  box-shadow: none;
+}
+
+.boxetoLeft {
+  text-align: right;
+  height: 30px;
+  width: 60%;
+  
+}
+.boxetoRight {
+  text-align: left;
+  text-justify: center;
+  height: 30px;
+  width: 35%;
+  margin:auto;
+}
+
+.selectSize {
+  height: 100px;
+  width: 135px; 
+  text-align: center;
+  border-radius: 10px;
+  line-height: 3;
+  font-size: 2em;
+  border: 2px solid white;
+  background-color: #00a0a0;
+  box-shadow: 10px 10px 5px 2px #005050;
+  cursor: pointer;
+}
+.selectSize:hover {
+  background-color: #00bfbf;
+}
+.selectSize:active {
+  transform: translate(10px,10px);
+  box-shadow: none;
+}
+
+
+.button {
+  font-size: 1.5em;
+  height: 100px;
+  width: 135px;  
+  text-align: center;
+  border-radius: 10px;
+  line-height: 1.75;
+  border: 2px solid white;
+  background-color: #00a0a0;
+  box-shadow: 10px 10px 5px 2px #005050;
+  color: #fff;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #00bfbf;
+}
+.button:active {
+  transform: translate(10px,10px);
+  box-shadow: none;
+}
+
+.tag {
+    position: relative;
+    display: flex;
+    border-radius: 10px;
+    /* width: 140px;
+    height: auto; */
+    margin: auto;
+    color: #000;
+    align-items: center;
+    justify-content: center;
+    line-height: 150%;
+    font-style: bold;
+    cursor: pointer;
+    /* color: #fff; */
+    /* background-color: #ff0000;
+    box-shadow: 5px 5px 5px 2px #500000; */
+    /* border: 1px solid #ffffff; */
+    
+
+}
+
+.recordsContainer {
+  position:fixed;
+  /* z-index: 1000; */
+  width: 100%;
+  height: 800px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  /* background-color: #005050; */
+
+}
+.info {
+width: 310px;
+height: 500px;
+background-color: #0000ff;
+box-shadow: 15px 15px 10px 5px #000055;
+display: flex;
+flex-wrap: wrap;
+align-content: space-around;
+justify-content: center;
+border: 5px double white;
+border-radius: 10px;
+}
+
+.win {
+  width: 90%;
+  align-self: center;
+  color: #fff;
+  line-height: 2.5;
+  font-size: 2em;
+}
+.str {
+  height: 25px;
+  width: 95%;
+  color: white;
+  font-size: 1.2em;
+}
+
+
+@media screen and (min-width: 620px) and (max-width: 800px) {
+  .buttonBox {
+    width: 300px;
+    align-self: center;
+    justify-content: space-between;
+
+    height: 300px;
+  }
+}
+
+
+
+@media screen and (min-width: 520px) and (max-width: 619px) { 
+  .playField {
+    font-size: 14px;
+    width: 500px;
+    height: 500px;
+}
+.buttonBox {
+  width: 300px;
+  align-self: center;
+  justify-content: space-between;
+
+  height: 300px;
+}
+}
+@media screen and (min-width: 420px) and (max-width: 519px) { 
+  .playField {
+    font-size: 12px;
+    width: 400px;
+    height: 400px;
+}
+.buttonBox {
+  width: 300px;
+  align-self: center;
+  justify-content: space-between;
+
+  height: 300px;
+}
+}
+
+@media screen and (min-width: 320px) and (max-width: 419px) { 
+  .playField {
+    font-size: 10px;
+    width: 300px;
+    height: 300px;
+}
+.buttonBox {
+  width: 300px;
+  align-self: center;
+  justify-content: space-between;
+
+  height: 300px;
+}
+}
