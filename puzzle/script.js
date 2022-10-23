@@ -13,6 +13,7 @@ let victory = [];
 let font;
 let windowWidth;
 
+
 window.addEventListener('beforeunload', setLocalStorage)
 
 
