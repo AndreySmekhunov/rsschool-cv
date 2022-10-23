@@ -40,6 +40,7 @@ body.append(buttonBox);
 let sound = document.createElement('audio');
 sound.src = 'no2.mp3';
 sound.id = 'no';
+
 body.append(sound);
 sound = document.createElement('audio');
 sound.src = 'yes3.mp3';
