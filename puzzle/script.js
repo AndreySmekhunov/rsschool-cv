@@ -13,18 +13,12 @@ let victory = [];
 let font;
 let windowWidth;
 
+
 window.addEventListener('beforeunload', setLocalStorage)
 
 
 
 getLocalStorage();
-
-// size = 4;
-// gameSteps = 0;
-// gameTime = 0;
-// init();
-// shuffle();
-// let windowWidth = 600;
 
 let playField = document.createElement('div');
 playField.className = 'playField';
@@ -40,6 +34,7 @@ body.append(buttonBox);
 let sound = document.createElement('audio');
 sound.src = 'no2.mp3';
 sound.id = 'no';
+
 body.append(sound);
 sound = document.createElement('audio');
 sound.src = 'yes3.mp3';
@@ -100,6 +95,7 @@ setWidth();
 setSizes();
 createField();
 fillField();
+newGame();
 
 // records = [{size:3, steps:9999, time:9999},{size:4, steps:9999, time:9999},{size:5, steps:9999, time:9999},
     // {size:6, steps:9999, time:9999},{size:7, steps:9999, time:99999},{size:8, steps:9999, time:99999}];
