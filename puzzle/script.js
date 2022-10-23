@@ -20,13 +20,6 @@ window.addEventListener('beforeunload', setLocalStorage)
 
 getLocalStorage();
 
-// size = 4;
-// gameSteps = 0;
-// gameTime = 0;
-// init();
-// shuffle();
-// let windowWidth = 600;
-
 let playField = document.createElement('div');
 playField.className = 'playField';
 playField.id = 'field';
@@ -102,6 +95,7 @@ setWidth();
 setSizes();
 createField();
 fillField();
+newGame();
 
 // records = [{size:3, steps:9999, time:9999},{size:4, steps:9999, time:9999},{size:5, steps:9999, time:9999},
     // {size:6, steps:9999, time:9999},{size:7, steps:9999, time:99999},{size:8, steps:9999, time:99999}];
