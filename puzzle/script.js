@@ -3,15 +3,16 @@ let box = []; // square matrix;
 let size;
 let l;
 let data = {};
-let records = {};
+let records = [];
 let gameTime;
 let gameSteps;
 let isVictory = false;
 let isPlay = false;
+let isRecords;
 let victory = [];
-// let s = document.createElement('div');
-// s.className = 'str'; 
-// body.append(s); 
+let font;
+let windowWidth;
+
 window.addEventListener('beforeunload', setLocalStorage)
 
 
@@ -23,22 +24,36 @@ getLocalStorage();
 // gameTime = 0;
 // init();
 // shuffle();
-let windowWidth = 600;
+// let windowWidth = 600;
 
 let playField = document.createElement('div');
 playField.className = 'playField';
 playField.id = 'field';
 body.append(playField); 
+let oldWidth = playField.offsetWidth;
+let newWidth = oldWidth;
+console.log(newWidth);
 let buttonBox = document.createElement('div');
 buttonBox.className = 'buttonBox';
 buttonBox.id = 'buttons'
-body.append(buttonBox);
-
-
+body.append(buttonBox); 
+let sound = document.createElement('audio');
+sound.src = 'no2.mp3';
+sound.id = 'no';
+body.append(sound);
+sound = document.createElement('audio');
+sound.src = 'yes3.mp3';
+sound.id = 'yes';
+body.append(sound);
+sound = document.createElement('audio');
+sound.src = 'victory.mp3';
+sound.id = 'victory';
+body.append(sound);
 
 
 let timerBox = document.createElement('div');
 timerBox.className = 'timerBox';
+timerBox.id = 'timerBox';
 buttonBox.append(timerBox);
 let el = document.createElement('div');
 el.className = 'boxetoLeft';
@@ -63,13 +78,12 @@ timerBox.append(el);
 
 
 
-
-
-
 let selectSize = document.createElement('div');
 selectSize.className = 'selectSize';
-selectSize.textContent = 'size&';
+selectSize.id = 'selectSize';
 buttonBox.append(selectSize);
+selectSize.textContent = size + ' x ' + size;
+
 let button = document.createElement('button');
 button.className = 'button';
 button.id = 'NewGame'
@@ -80,52 +94,92 @@ button.className = 'button';
 button.id = 'BestResults'
 button.textContent = 'Best Results'
 buttonBox.append(button); 
+
+
+setWidth();
+setSizes();
 createField();
+fillField();
 
-
+// records = [{size:3, steps:9999, time:9999},{size:4, steps:9999, time:9999},{size:5, steps:9999, time:9999},
+    // {size:6, steps:9999, time:9999},{size:7, steps:9999, time:99999},{size:8, steps:9999, time:99999}];
 
 document.getElementById('field').addEventListener('click', moveTag);
+document.getElementById('selectSize').addEventListener('click', resize);
 document.getElementById('NewGame').addEventListener('click', newGame);
+document.getElementById('BestResults').addEventListener('click', showResults); 
+document.getElementById('timerBox').addEventListener('click', pauseGame); 
+
 showTime();
 
-// расставляем фишки на поле
+// расставляем фишки на поле (без цифр)
 function createField() {
     for (let i = 0; i < size; i++)
         for (let j = 0; j < size; j++)
         {
             let tag = document.createElement('div');
             tag.className = 'tag';
-            tag.style.width = windowWidth * 0.9 / size + 'px';
-            tag.style.height = windowWidth * 0.9 / size + 'px';
-            if (!box[i][j]) {
-                tag.style.color = '#0000ff';
-                tag.style.backgroundColor = '#0000ff';
-                tag.style.border = 'none';  
-                tag.style.boxShadow = 'none'   
-            }
-            else {
-                tag.style.color = '#fff';
-                tag.style.backgroundColor = '#ff0000';
-                tag.style.border = '2px solid white';     
-            }
+            tag.style.width = newWidth / (size + 0.7) + 'px';
+            tag.style.height = newWidth  / (size + 0.7) + 'px';
             tag.id = (i * size + j).toString();
-            tag.textContent = box[i][j];
             playField.append(tag);
     
         }
     }
-    
+    function fillField() {
+        document.getElementById('steps').textContent = gameSteps;
+        document.getElementById('seconds').textContent = gameTime;  
+        for (let i = 0; i < size; i++)
+            for (let j = 0; j < size; j++)
+            {
+                let tag = document.getElementById((i * size + j).toString());
+                if (!box[i][j]) {
+                    tag.style.color = '#d0d0d0';
+                    tag.style.backgroundColor = '#d0d0d0';
+                    // tag.style.border = 'none';  
+                    tag.style.boxShadow = 'none'   
+                }
+                else {
+                    tag.style.color = '#fff';
+                    tag.style.backgroundColor = '#00a0a0';
+                    tag.style.boxShadow = '5px 5px 5px 2px #005050';
+                    tag.style.fontSize = font;
+                    // tag.style.border = '2px solid white';     
+                }
+                tag.textContent = box[i][j];
+        
+            }
+        }
 
+//убираем фишки после изменения размера
+function clearField() {
+    for (let i = 0; i < size; i++)
+        for (let j = 0; j < size; j++)
+        {
+            let tag = document.getElementById((i * size + j).toString());
+            tag.remove()
+    
+        }
+    }
+//увеличиваем размер 
+function resize() {
+    clearField();
+    size += 1;
+    if (size > 8) size = 3;
+    document.getElementById('selectSize').textContent = size + ' x ' + size;
+    createField();
+    newGame();
+    fillField();
+}
 // устанавливаем размеры элементов в зависимости от размера экрана
 function setSizes() {
-    let screen = window.outerWidth;
-    if (screen > 1280) {
-        windowWidth = 600;
-    }
-    if (screen > 720) windowWidth = 500;
-
+    if (size == 3) font = '6em';
+    if (size == 4) font = '5em';
+    if (size == 5) font = '4em';
+    if (size == 6) font = '3em';
+    if (size == 7) font = '2.5em';
+    if (size == 8) font = '2em';
 }
-
 
 function setLocalStorage() {
     data.size = size;
@@ -137,8 +191,6 @@ function setLocalStorage() {
     localStorage.setItem('data', JSON.stringify(data));
   }
   
-  
-  
 //   это мы посмотрели в локальное хранилище, достали оттуда данные, если нет - создали их
 // если там победа - сгенерили новую игру и обнулили время
 
@@ -146,6 +198,7 @@ function setLocalStorage() {
       if(localStorage.getItem('data')) {
         data = JSON.parse(localStorage.getItem('data'));
         size = data.size;
+        init();
         records = data.records;
         gameTime = data.gameTime;
         gameSteps = data.gameSteps;
@@ -166,7 +219,8 @@ function setLocalStorage() {
         gameTime = 0;
         gameSteps = 0;
         isVictory = false;
-        records = [{size:3, steps:9999, time:9999},{size:4, steps:9999, time:9999},{size:5, steps:9999, time:9999}];
+        records = [{size:3, steps:9999, time:9999},{size:4, steps:9999, time:9999},{size:5, steps:9999, time:9999},
+            {size:6, steps:9999, time:9999},{size:7, steps:9999, time:99999},{size:8, steps:9999, time:99999}];
       }  
   }
 
@@ -203,14 +257,14 @@ function shuffle() {
             game[l-2] = game[l-1];
             game[l-1] = el;
         }
-        box = [];
-        for (let i = 0; i < size; i++) {
-            let str = [];
-            for (let j = 0; j < size; j++) {
-                str.push(game[i * size + j])
-            }
-            box.push(str);
-        }  
+    box = [];
+    for (let i = 0; i < size; i++) {
+        let str = [];
+        for (let j = 0; j < size; j++) {
+            str.push(game[i * size + j])
+        }
+        box.push(str);
+    }  
 
 }
 
@@ -223,7 +277,7 @@ function newGame() {
     init();
     setSizes();
     shuffle();
-    changeBox(); 
+    fillField(); 
 }
 // проверяем на решаемость
 function noSolve() {
@@ -239,8 +293,10 @@ function noSolve() {
 
 //двигаем фишки, если возможно
     function moveTag(e) {
+        if (isVictory) return;
         isPlay = true;
         let target = e.target;
+        e.stopPropagation();
         if (target.id == 'field') return;
         let num = Number(target.id);
         console.log(num);
@@ -254,20 +310,30 @@ function noSolve() {
                     zeroString = i;
                     zeroColumn = j;
                 }
-           
-            
-            
-            // console.log(zeroString,zeroColumn,numString,numColumn);      
-        if (numString != zeroString && numColumn != zeroColumn) return;
-        if (numString == zeroString && numColumn == zeroColumn) return;
+     
+        if ((numString != zeroString && numColumn != zeroColumn) || (numString == zeroString && numColumn == zeroColumn)){
+         let audio = document.getElementById('no');
+         audio.volume=0.5;
+         audio.play();
+            return;
+        }
         let changeList = [];
         if (numString == zeroString) 
             changeString(numString, zeroColumn, numColumn)              
         if (numColumn == zeroColumn) 
             changeColumn(numColumn, zeroString, numString)
         gameSteps += 1;   
-        changeBox();    
-        if (JSON.stringify(box) == JSON.stringify(victory)) alert('you win!');   
+        let audio = document.getElementById('yes');
+        audio.volume=0.5;
+        audio.play();
+        fillField();    
+        if (JSON.stringify(box) == JSON.stringify(victory)) {
+            isVictory = true;
+            isPlay = false;
+            fillField();
+            youWin();
+            // newGame();
+            };   
     }
         // сдвигаем колонку
         function changeColumn(j, zero, num) {
@@ -290,45 +356,97 @@ function noSolve() {
         box[i][num] = 0;    
         }   
         // отображаем последствия хода на экране
-        function changeBox() {
-        document.getElementById('steps').textContent = gameSteps;
-        document.getElementById('seconds').textContent = gameTime;    
-        for (let i = 0; i < size; i++) 
-            for (let j = 0; j < size; j++) {
-            let id = (i * size +j).toString();
-            let el = document.getElementById(id);
-            // console.log(size);
-                if (box[i][j]) {
-                    el.style.color = '#fff';
-                    el.style.backgroundColor = '#ff0000';
-                    el.style.border = '2px solid white';      
-                    el.style.boxShadow = '5px 5px 5px 2px #500000';
-                }
-                else {    
-                    el.style.color = '#0000ff';
-                    el.style.backgroundColor = '#0000ff';
-                    el.style.border = 'none'; 
-                    el.style.boxShadow = 'none'
-                }
-                el.textContent = box[i][j];        
-            }
-   
-
-        }
+        // function changeBox() {
+        //     fillField();
+        // }
         // таймер (запускается при первом движении)
         function showTime() {
         if (isPlay) gameTime += 1;
         document.getElementById('seconds').textContent = gameTime;        
             setTimeout(showTime, 1000);
           }
+          function showResults(e) {
+          e.stopPropagation(); window.addEventListener('click', closeRecords);
 
 
 
+            isPlay = false;
+            let el = document.createElement('div');
+            el.className = 'recordsContainer';
+            el.id = 'recordsContainer'
+            body.append(el);
+            // console.log(el);
+            let info = document.createElement('div');
+            info.className = 'info';
+            el.append(info);
+            let str = document.createElement('div');
+            str.className = 'str';
+            str.style.fontSize = '2em';
+            str.textContent = `Best result`;
+            info.append(str);
+            for (let i = 0; i < records.length; i++) {
+                let str = document.createElement('div');
+                str.className = 'str';
+                str.textContent = `${i+3}x${i+3}      Steps: ${records[i].steps}        Seconds: ${records[i].time}`;
+                info.append(str);
+            }
+            window.addEventListener('click', closeRecords)  
+            
+          }
 
+          function closeRecords() {
+                        // alert('you here');
+            let el = document.getElementById('recordsContainer');
+            el.remove();
+            window.removeEventListener('click', closeRecords);
+          }
+
+          function youWin() {
+            let audio = document.getElementById('victory');
+            audio.volume=0.5;
+            audio.play();
+            let el = document.createElement('div');
+            el.className = 'recordsContainer';
+            el.id = 'recordsContainer'
+            body.append(el);
+        
+            let info = document.createElement('div');
+            info.className = 'info';
+            info.style.backgroundColor = 'red';
+            info.style.boxShadow = '15px 15px 10px 5px #550000';
+            info.style.alignContent = 'center';
+            el.append(info);
+            let str = document.createElement('div');
+                str.className = 'win';
+                str.textContent = `Congratulations!!!  You have completed the puzzle in ${gameSteps} steps and ${gameTime} seconds!!!`;
+                if (records[size - 3].time > gameTime) {
+                    records[size - 3].time = gameTime;
+                    records[size - 3].steps = gameSteps;
+                }
+            info.append(str);
+            window.addEventListener('click', closeRecords)      
+        
+          }  
+
+          function pauseGame() {
+            if (isVictory) return;
+            if (isPlay) isPlay = false 
+                else isPlay = true
+          }
+          function setWidth() {
+            newWidth = playField.offsetWidth;
+            if (newWidth != oldWidth) {
+                oldWidth = newWidth;
+                clearField();
+                createField();
+                fillField();
+            }
+            setTimeout(setWidth, 300);
+          }
 
         // 1. проверка на собираемость, вывод сообщения
         // 2. добавляем кнопки рестарт, рекорды и выбор сложности
-        // 3. добавляем таймер (старт при первом нажатии, счет ходов)
+        // 3. добавляем таймер (старт при первом нажатии, счет ходов)             +++++++
         // 4. добавляем запись\ просмотр рекордов
-        // 3. добавляем выбор ширины элементов в зависимости от ширины экрана
+        // 3. добавляем выбор ширины элементов в зависимости от ширины экрана 
         // 6. добавляем перенос блока кнопок вниз при ширине меньше чего то там и сами кнопки горизонтально 
