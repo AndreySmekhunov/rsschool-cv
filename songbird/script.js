@@ -1,6 +1,9 @@
 
 import birdsData from './birds.js';
 let list = document.getElementById('birdList');
+let isOpen = false;
+
+
 
 for (let i = 0; i < birdsData.length; i++) {
         let el = document.createElement('div');
@@ -27,24 +30,48 @@ for (let i = 0; i < birdsData.length; i++) {
 document.getElementById('birdList').addEventListener('click', showBird);
 
 function showBird(e) {
-    console.log('yes');
+    if (isOpen) return;
     let target = e.target;
-    console.log(target);
-    // e.stopPropagation();
     if (target.id == 'birdBox') return;
+    
     let num = Number(target.parentNode.id);
-    console.log(num);
+    if (isNaN(num))  return;
+    isOpen = true;       
     let birdBox = document.createElement('div');
     birdBox.className = 'birdBox';
-    
-    let photo = document.createElement('div');
-    photo.className = 'bigPhoto';
-    photo.style.backgroundImage = 'url("' + birdsData[num].image + '")';
+    birdBox.id = 'birdBox';
+    birdBox.style.backgroundImage = 'url("' + birdsData[num].image + '")';
     let info = document.createElement('div');
     info.className = 'infoBird';
+    info.id = 'info'
     info.textContent = birdsData[num].description;
-    birdBox.append(photo);
-    birdBox.append(info);
+    let player = document.createElement('div');   
     body.append(birdBox);
+    body.append(info);
+    body.append(player);
+    setTimeout(addPlayer,1000);
+        
+}
+
+function addPlayer() {
+    let player = document.createElement('div');
+    player.className = 'player';
+    player.id = 'player';
+    body.append(player);
+    window.addEventListener('click', removePlayer);
+
+}
+
+function removePlayer(e) {
+let target = e.target;
+if (target.id == 'info') return;
+if (target.id == 'birdBox') return;
+if (target.id == 'player') return;
+document.getElementsByClassName('player')[0].remove();
+document.getElementsByClassName('birdBox')[0].remove();
+document.getElementsByClassName('infoBird')[0].remove();
+isOpen = false;
+window.removeEventListener('click', removePlayer);
+
 
 }

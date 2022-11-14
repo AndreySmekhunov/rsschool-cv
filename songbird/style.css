@@ -4,7 +4,6 @@ body {
     height:100%;
     display: flex;
     flex-direction: column;
-    padding: 0;
     box-sizing: border-box;
     background-size: 100%;
     background-image: url("owls.jpg");
@@ -67,35 +66,53 @@ cursor: pointer;
 }
 
 .birdBox {
-    display: flex;
     position: fixed;
     left: calc(50% - 100px);
     top: calc(50vh - 100px);
-    height: 200px;
-    width: 200px;
     border: 2px solid #909090;
-    border-radius: 5px;
+    border-radius: 10px 10px 0  0;
     box-shadow: 15px 10px 10px rgba(0,0,0,0.7); 
-    /* transform: scale(2.5, 2.5); */
     animation: myexpand 1s;
     animation-fill-mode: forwards;
-    flex-direction: column;
+    background-size: cover; 
 
 }
 @keyframes myexpand {
-    from {height: 150px; width: 200px; top: calc(50vh - 100px); left: calc(50% - 100px)}
-    to {height: 375px; width: 500px; top: calc(50vh - 250px); left: calc(50% - 250px)}
+    from {height: 75px; width: 100px; top: calc(50vh - 75px); left: calc(50% - 100px)}
+    to {height: 375px; width: 500px; top: calc(50vh - 187px); left: calc(50% - 250px)}
 }
-.bigPhoto {
-    width: 500px;
-    height: 375px;
-    background-size: cover; 
-}
+
 .infoBird {
-    height: 100px;
-    width: 100%;
+    position: fixed;
+    top: calc(50vh + 190px);
+    height: 120px;
     background-color: #909090;
+    border: 2px solid #909090;
     color:blue;
+    box-shadow: 15px 10px 10px rgba(0,0,0,0.7); 
+    animation: myexpandtext 1s;
+    animation-fill-mode: forwards;
+    font-style: italic;
+    line-height: 1.3em;
+    padding: 10px 110px 10px 10px;
 
+}
+@keyframes myexpandtext {
+    from {width: 100px;  font-size: 6px; left: calc(50% - 50px)}
+    to {width: 380px; font-size: 16px; left: calc(50% - 250px)}
+}
 
+.player {
+    position: fixed;
+    top: calc(50vh + 230px);
+    left: calc(50% + 160px);
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    background-size: cover;
+    background-image: url('play.svg');
+    cursor: pointer;
+}
+.player:hover {
+    background-color: #505050;
 }
