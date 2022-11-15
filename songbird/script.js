@@ -2,6 +2,8 @@
 import birdsData from './birds.js';
 let list = document.getElementById('birdList');
 let isOpen = false;
+let isPlay = false;
+const audio = document.querySelector('audio');
 
 
 
@@ -36,7 +38,8 @@ function showBird(e) {
     
     let num = Number(target.parentNode.id);
     if (isNaN(num))  return;
-    isOpen = true;       
+    isOpen = true;   
+    audio.src = birdsData[num].audio;   
     let birdBox = document.createElement('div');
     birdBox.className = 'birdBox';
     birdBox.id = 'birdBox';
@@ -58,6 +61,7 @@ function addPlayer() {
     player.className = 'player';
     player.id = 'player';
     body.append(player);
+    document.getElementById('player').addEventListener('click', play);
     window.addEventListener('click', removePlayer);
 
 }
@@ -66,12 +70,27 @@ function removePlayer(e) {
 let target = e.target;
 if (target.id == 'info') return;
 if (target.id == 'birdBox') return;
-if (target.id == 'player') return;
+if (target.id == 'player') { play(); return };
 document.getElementsByClassName('player')[0].remove();
 document.getElementsByClassName('birdBox')[0].remove();
 document.getElementsByClassName('infoBird')[0].remove();
 isOpen = false;
 window.removeEventListener('click', removePlayer);
+}
 
-
+function play() {
+    console.log('start play');
+    let el = document.getElementById('player');
+    if (isPlay) {
+        isPlay = false;
+        el.style.backgroundImage = ' url("pause.svg")';
+        el.style.backgroundColor = ' #909090';
+        audio.pause();
+    }
+    else {
+        isPlay = true;
+        el.style.backgroundImage = ' url("play.svg")';
+        el.style.backgroundColor = ' #505050';
+        audio.play();
+    }
 }
