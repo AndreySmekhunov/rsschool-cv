@@ -67,8 +67,8 @@ cursor: pointer;
 
 .birdBox {
     position: fixed;
-    left: calc(50% - 100px);
-    top: calc(50vh - 100px);
+    /* left: calc(50% - 100px);
+    top: calc(50vh - 100px); */
     border: 2px solid #909090;
     border-radius: 10px 10px 0  0;
     box-shadow: 15px 10px 10px rgba(0,0,0,0.7); 
@@ -78,13 +78,13 @@ cursor: pointer;
 
 }
 @keyframes myexpand {
-    from {height: 75px; width: 100px; top: calc(50vh - 75px); left: calc(50% - 100px)}
-    to {height: 375px; width: 500px; top: calc(50vh - 187px); left: calc(50% - 250px)}
+    from {height: 75px; width: 100px; top: calc(50vh - 175px); left: calc(50% - 100px)}
+    to {height: 375px; width: 500px; top: calc(50vh - 287px); left: calc(50% - 250px)}
 }
 
 .infoBird {
     position: fixed;
-    top: calc(50vh + 190px);
+    top: calc(50vh + 90px);
     height: 120px;
     background-color: #909090;
     border: 2px solid #909090;
@@ -98,13 +98,13 @@ cursor: pointer;
 
 }
 @keyframes myexpandtext {
-    from {width: 100px;  font-size: 6px; left: calc(50% - 50px)}
+    from {width: 60px;  font-size: 4px; left: calc(50% - 80px)}
     to {width: 380px; font-size: 16px; left: calc(50% - 250px)}
 }
 
 .player {
     position: fixed;
-    top: calc(50vh + 230px);
+    top: calc(50vh + 130px);
     left: calc(50% + 160px);
     height: 60px;
     width: 60px;

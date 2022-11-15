@@ -70,7 +70,7 @@ function removePlayer(e) {
 let target = e.target;
 if (target.id == 'info') return;
 if (target.id == 'birdBox') return;
-if (target.id == 'player') { play(); return };
+if (target.id == 'player') { return };
 document.getElementsByClassName('player')[0].remove();
 document.getElementsByClassName('birdBox')[0].remove();
 document.getElementsByClassName('infoBird')[0].remove();
