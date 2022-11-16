@@ -4,6 +4,7 @@ let list = document.getElementById('birdList');
 let isOpen = false;
 let isPlay = false;
 const audio = document.querySelector('audio');
+audio.addEventListener('ended', endPlay);
 
 
 
@@ -55,6 +56,11 @@ function showBird(e) {
     setTimeout(addPlayer,1000);
         
 }
+function endPlay() {
+    isPlay = false;
+    let el = document.getElementById('player');
+    el.style.backgroundColor = '#909090';
+}
 
 function addPlayer() {
     let player = document.createElement('div');
@@ -79,12 +85,10 @@ window.removeEventListener('click', removePlayer);
 }
 
 function play() {
-    console.log('start play');
     let el = document.getElementById('player');
     if (isPlay) {
         isPlay = false;
         el.style.backgroundImage = ' url("pause.svg")';
-        el.style.backgroundColor = ' #909090';
         audio.pause();
     }
     else {
