@@ -301,6 +301,7 @@ const birdsData = [
     ]
   ];
   let birds = [];
+  let id = 0;
   for (let i = 0; i < birdsData.length; i++) {
     for (let j = 0; j < birdsData[i].length; j++) {
       let oneBird = {}
@@ -309,6 +310,8 @@ const birdsData = [
       oneBird.description = birdsData[i][j].description;
       oneBird.image = birdsData[i][j].image;
       oneBird.audio = birdsData[i][j].audio;
+      oneBird.id = id;
+      id += 1;
       birds.push(oneBird);
     }
   }
