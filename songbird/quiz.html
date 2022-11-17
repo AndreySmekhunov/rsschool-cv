@@ -12,10 +12,21 @@
     <audio src=""></audio>
     <div class = "quizList">
         <div id = "small" class = "quizPhoto"></div>
-        <div class = "questions">вопрос Х из 6, кнопка плей</div>
+        <div class = "questions">
+            <div class = "questionTxt"></div>
+            <div class = 'score'></div>
+            <div class = 'progress'>
+                <div class = "oneStep"></div>
+            </div>
+        </div>
         <div  id = "quiz" class = "variants"></div>
-        <div class = "birdInfo">инфа о нажатой птице</div>
-        <div class = "longButton">кнопка след вопрос</div>
+        <div class = "birdInfo">
+            <div class = "bigPhoto"></div>
+            <div class = "playerQuiz"></div>
+            <h2 class = "name"></h2>
+            <p class = "description"></p>
+        </div>   
+        <div class = "longButton"><p>Следующий  вопрос</p></div>
     </div>
 
     <script type = 'module' src="quiz.js"></script> 
