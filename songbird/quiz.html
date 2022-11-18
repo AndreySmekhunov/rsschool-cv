@@ -9,22 +9,32 @@
     <title>SongBird-Quiz</title>
 </head>
 <body id = 'body'>
-    <audio src=""></audio>
+    <audio id = 'audioQuiz' src=""></audio>
+    <audio id = 'audioDescription' src=""></audio>
+    <audio id = 'yesOrNo' src=""></audio>
     <div class = "quizList">
         <div id = "small" class = "quizPhoto"></div>
         <div class = "questions">
+            <div class = "hint"></div>
             <div class = "questionTxt"></div>
             <div class = 'score'></div>
+            <div class = "box1">
+                <div id = "playerQuiz" class = "player"></div>
+            </div>
+
             <div class = 'progress'>
                 <div class = "oneStep"></div>
             </div>
         </div>
         <div  id = "quiz" class = "variants"></div>
         <div class = "birdInfo">
-            <div class = "bigPhoto"></div>
-            <div class = "playerQuiz"></div>
-            <h2 class = "name"></h2>
-            <p class = "description"></p>
+            <p class = "inviteText">Прослушайте голос и попробуйте угадать название птицы</p>
+            <div id = "bigPhoto" class = "bigPhoto"></div>
+            <div class = "playerQuiz">
+                <div id = "playerDescription" class="player"></div>
+            </div>
+            <div id = "name" class = "name">fxdfgdgf</div>
+            <p id = "description" class = "description"></p>
         </div>   
         <div class = "longButton"><p>Следующий  вопрос</p></div>
     </div>
