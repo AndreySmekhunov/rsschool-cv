@@ -63,10 +63,14 @@ function endPlay() {
 }
 
 function addPlayer() {
+    let playerBox = document.createElement('div');
     let player = document.createElement('div');
+    playerBox.className = 'playerBox';
+
     player.className = 'player';
     player.id = 'player';
-    body.append(player);
+    body.append(playerBox);
+    playerBox.append(player);
     document.getElementById('player').addEventListener('click', play);
     window.addEventListener('click', removePlayer);
 

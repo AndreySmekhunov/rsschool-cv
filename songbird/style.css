@@ -137,10 +137,15 @@ cursor: pointer;
     to {width: 380px; font-size: 16px; left: calc(50% - 250px)}
 }
 
-.player {
+.playerBox {
     position: fixed;
     top: calc(50vh + 130px);
     left: calc(50% + 160px);
+    height: 60px;
+    width: 60px;
+}
+
+.player {
     height: 60px;
     width: 60px;
     border-radius: 30px;
