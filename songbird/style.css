@@ -104,8 +104,6 @@ cursor: pointer;
 
 .birdBox {
     position: fixed;
-    /* left: calc(50% - 100px);
-    top: calc(50vh - 100px); */
     border: 2px solid #909090;
     border-radius: 10px 10px 0  0;
     box-shadow: 15px 10px 10px rgba(0,0,0,0.7); 
@@ -171,29 +169,54 @@ cursor: pointer;
 }
 .questions {
     display: flex;
+    flex-wrap: wrap;
     margin: auto;
     width: 70%;
     height: 150px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: space-around;
-    border: 1px solid red;
+    background-color: #909090;
+    border-radius: 5px;
 }
+
 .questionString {
     display: flex;
     justify-content: space-around;
     align-items: center;
     border: 1px solid red;
     width: 90%;
+    font-size: 1.5em;
     margin: auto;
     height: 40px;
-    background-color: green;
+    color: white;
+    cursor: pointer;
 }
 .questionTxt {
     width: 70%;
+    margin: auto;
     height: 40px;
     border: 1px solid red;
 }
-
+.score {
+    width: 25%;
+    margin: auto;
+    height: 40px;
+    border: 1px solid red;
+}
+.progress {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 80%;
+    height: 40px;
+    margin: auto;
+}
+.oneStep {
+    height: 40px;
+    width: 0;
+    border-radius: 5px;
+    background-color: #00a0a0;
+}
 .circle {
     height: 10px;
     width: 10px;
@@ -207,7 +230,9 @@ cursor: pointer;
     display: flex;
     flex-wrap: wrap;
     width: 40%;
-    height: 400px;
+    height: 420px;
+    background-color: #909090;
+    border-radius: 5px;
     border: 1px solid red;
 }
 
@@ -215,13 +240,43 @@ cursor: pointer;
 
 .birdInfo {
     width: 50%;
-    height: 400px;
-    border: 1px solid red;
+    height: 420px;
+    background-color: #909090;
+    border-radius: 5px;
+}
+
+.bigPhoto {
+    width: 200px;
+    float:left; 
+    height: 150px;
+    background-size: cover;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.playerQuiz {
+    float:right; 
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    background-size: cover;
+    background-image: url('play.svg');
+    cursor: pointer;
+    margin: 20px;
+}
+.playerQuiz:hover {
+    background-color: #505050;
 }
 
 .longButton {
+    display: flex;
     width: 90%;
-    height: 50px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    border: 1px solid red;
+    color: white;
+    font-size: 1.3em;
+    background-color: #909090;
+    border-radius: 5px;
 }
