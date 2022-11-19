@@ -71,7 +71,6 @@ hint.textContent = 'подсказка для тестеров: ' + answers[coun
 scoreTxt.textContent = 'Баллы: ' + score;
 for (let i = 0; i < 6; i++) {
     let el = document.getElementById(i.toString());
-    el.style.fontSize = '1em';
     el.style.color = 'white'; 
     el.style.cursor = 'pointer';
     el.textContent = currentVariants[i].name;
@@ -146,6 +145,8 @@ function nextQuestion() {
 
 }
 function showResult() {
+    yesOrNo.src = 'victory.mp3';
+    yesOrNo.play();
     clearTimeout(showResult);
     let el = document.createElement('div');
     let victoryText = document.createElement('div');
