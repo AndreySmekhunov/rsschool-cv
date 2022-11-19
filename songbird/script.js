@@ -85,6 +85,7 @@ document.getElementsByClassName('player')[0].remove();
 document.getElementsByClassName('birdBox')[0].remove();
 document.getElementsByClassName('infoBird')[0].remove();
 isOpen = false;
+audio.pause();
 window.removeEventListener('click', removePlayer);
 }
 

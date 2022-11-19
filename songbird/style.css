@@ -43,6 +43,7 @@ body {
 }
 .button {
     font-size: 1.3em;
+    margin: 0 20px;
 
     color: rgba(255,255,255, 0.8);
 }
@@ -55,17 +56,15 @@ body {
 
 
 .birdList {
-    /* position: absolute; */
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     min-height: calc(100vh - 140px);
-   /* flex: 1 0 auto;*/
  
 }
 .oneBird {
 display: flex;
-width: 40%;
+width: 30%;
 margin: 20px auto;
 height: 150px;
 background-color: #fff;
@@ -113,9 +112,15 @@ cursor: pointer;
 
 }
 @keyframes myexpand {
-    from {height: 75px; width: 100px; top: calc(50vh - 175px); left: calc(50% - 100px)}
+    from {height: 75px; width: 100px; top: calc(50vh - 175px); left: calc(50% - 50px)}
     to {height: 375px; width: 500px; top: calc(50vh - 287px); left: calc(50% - 250px)}
 }
+@keyframes myexpand360 {
+    from {height: 75px; width: 100px; top: calc(50vh - 175px); left: calc(50% - 50px)}
+    to {height: 225px; width: 300px; top: calc(50vh - 275px); left: calc(50% - 150px)}
+}
+
+
 
 .infoBird {
     position: fixed;
@@ -129,6 +134,7 @@ cursor: pointer;
     animation-fill-mode: forwards;
     font-style: italic;
     line-height: 1.3em;
+    border-radius: 0 0 10px 10px;
     padding: 10px 110px 10px 10px;
 
 }
@@ -136,7 +142,10 @@ cursor: pointer;
     from {width: 60px;  font-size: 4px; left: calc(50% - 80px)}
     to {width: 380px; font-size: 16px; left: calc(50% - 250px)}
 }
-
+@keyframes myexpandtext360 {
+    from {width: 60px;  font-size: 4px; left: calc(50% - 80px)}
+    to {width: 200px; font-size: 12px; left: calc(50% - 150px)}
+}
 .playerBox {
     position: fixed;
     top: calc(50vh + 130px);
@@ -174,18 +183,19 @@ cursor: pointer;
 }
 .questions {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     margin: auto;
     width: 70%;
     font-size: 2em;
     height: 150px;
     justify-content: space-around;
-    align-items: space-around;
+    align-items: center;
     background-color: #909090;
     border-radius: 5px;
 }
 .hint {
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: 50px;
     font-size: 12px;
@@ -193,12 +203,10 @@ cursor: pointer;
 }
 .questionTxt {
     width: 30%;
-    margin: auto;
     height: 40px;
 }
 .score {
     width: 25%;
-    margin: auto;
     height: 40px;
 }
 .progress {
@@ -243,11 +251,28 @@ cursor: pointer;
     color: white;
     cursor: pointer;
 }
+.inviteText {
+    font-size: 3em;
+    padding: 50px 100px;
+}
 
+
+.name {
+    width: 30%;
+    /* margin: 50px 0; */
+    font-size: 3em;
+}
+.description {
+    width: 85%;
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
 
 .birdInfo {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     width: 65%;
     height: 420px;
     background-color: #909090;
@@ -265,21 +290,13 @@ cursor: pointer;
 .playerQuiz {
     height: 60px;
     width: 60px;
-    margin: 30px;
 }
 .box1 {
     height: 60px;
     width: 60px;
-    margin: 30px;
+    /* margin: 30px; */
 }
-.name {
-    width: 60%;
-    padding: 0 20px;
-}
-.description {
-    width: 100%;
-    padding: 0 20px;
-}
+
 .longButton {
     display: flex;
     width: 96.5%;

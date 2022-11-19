@@ -1,0 +1,148 @@
+@media screen and (min-width: 801px) and (max-width: 1201px) {
+    .oneBird {
+        width: 45%;
+        
+        }
+        .name {
+            width: 30%;
+            font-size: 2em;
+        }
+        .description {
+            width: 85%;
+            font-size: 1em;
+            line-height: 1.2em;
+        }
+        .bigPhoto {
+            width: 240px;
+            height: 180px;
+            background-size: cover;
+            margin: 5px;
+            border-radius: 5px;
+        }
+}
+@media screen and (min-width: 651px) and (max-width: 800px) {
+    .oneBird {
+        width: 45%;
+        height: 120px;
+        }
+        .smallPhoto {
+            height: 120px;
+            flex: 160px 0 0;
+        }
+        .smallText {
+            height: 120px;
+
+        }
+        .rusName{
+            font-size: 1.2em;
+        }
+
+        .name {
+            width: 80%;
+            font-size: 1.5em;
+        }
+        .description {
+            width: 90%;
+            font-size: 1em;
+            line-height: 1.2em;
+        }
+        .bigPhoto {
+            width: 200px;
+            height: 150px;
+            background-size: cover;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .variants {
+            width: 25%;
+        }
+        .questions {
+            width: 60%;
+            font-size: 1.5em;
+        }
+
+    }
+    @media screen and (min-width: 360px) and (max-width: 650px) {
+        .oneBird {
+            width: 90%;
+            height: 120px;
+            }
+            .smallPhoto {
+                height: 120px;
+                flex: 160px 0 0;
+            }
+            .smallText {
+                height: 120px;
+    
+            }
+            .rusName{
+                font-size: 1.5em;
+            }
+            .button {
+                font-size: 1.1em;
+
+            }
+            .birdBox {
+                animation: myexpand360 1s;         
+                animation-fill-mode: forwards;
+                /* background-size: contain;  */
+            }
+            .infoBird {
+                top: calc(50vh - 47px);
+                animation: myexpandtext360 1s;          
+                animation-fill-mode: forwards;
+                padding: 10px 90px 10px 10px;
+            }
+            .playerBox {
+                position: fixed;
+                top: calc(50vh + 0px);
+                left: calc(50% + 70px);
+                height: 60px;
+                width: 60px;
+            }
+            
+        .name {
+            width: 80%;
+            font-size: 1.2em;
+        }
+        .description {
+            width: 95%;
+            font-size: 1em;
+            line-height: 1.1em;
+        }
+        .bigPhoto {
+            width: 120px;
+            height: 90px;
+            background-size: cover;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .variants {
+            width: 20%;
+        }
+        .questions {
+            width: 60%;
+            font-size: 1em;
+            height: 90px;
+        }
+        .questionTxt {
+            width: 20%;
+        }
+        .quizPhoto {
+            height: 90px;
+            width: 120px;
+        }
+        .progress {
+            display: none;
+        }
+        .hint {
+            display: none;    
+        }
+        .questionString {
+            font-size: 1em;
+        }
+        .inviteText {
+            font-size: 1.5em;
+        }
+        
+    }

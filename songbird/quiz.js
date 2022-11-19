@@ -71,7 +71,7 @@ hint.textContent = 'подсказка для тестеров: ' + answers[coun
 scoreTxt.textContent = 'Баллы: ' + score;
 for (let i = 0; i < 6; i++) {
     let el = document.getElementById(i.toString());
-    el.style.fontSize = '1.5em';
+    el.style.fontSize = '1em';
     el.style.color = 'white'; 
     el.style.cursor = 'pointer';
     el.textContent = currentVariants[i].name;
@@ -91,7 +91,7 @@ playerDescription.style.display = 'block';
 name.style.display = 'block';
 description.style.display = 'block';
 bigPhoto.style.backgroundImage = 'url("' + currentVariants[num].image +'")';
-name.textContent = currentVariants[num].name + '\n' + currentVariants[num].species;
+name.innerHTML = currentVariants[num].name + '<br> <i>' + currentVariants[num].species + '</i>';
 description.textContent = currentVariants[num].description;
 
 
