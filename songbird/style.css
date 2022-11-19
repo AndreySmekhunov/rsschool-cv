@@ -125,7 +125,7 @@ cursor: pointer;
 .infoBird {
     position: fixed;
     top: calc(50vh + 90px);
-    height: 120px;
+    height: 150px;
     background-color: #909090;
     border: 2px solid #909090;
     color:blue;
