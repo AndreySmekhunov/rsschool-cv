@@ -1,0 +1,353 @@
+body {
+    margin: 0;
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: space-around;
+    box-sizing: border-box;
+    background-size: 100%;
+    background-image: url("owls.jpg");
+}
+
+.header, .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 70px;
+    flex-shrink: 0;
+    color: #fff;
+    background-color: rgba(80, 80, 80, 0.5);
+
+}
+.header {
+    justify-content: flex-start;
+}
+.headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 70px;
+    width: 600px;
+}
+.logo {
+    height: 50px;
+    width: 50px;
+
+}
+.logoRS {
+    height: 50px;
+    width: 100px;
+}
+.button {
+    font-size: 1.3em;
+    margin: 0 20px;
+
+    color: rgba(255,255,255, 0.8);
+}
+.button:hover {
+    color: #2020ff;
+    text-decoration: none;
+    transition: 1s;
+}
+
+
+
+.birdList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 140px);
+ 
+}
+.oneBird {
+display: flex;
+width: 30%;
+margin: 20px auto;
+height: 150px;
+background-color: #fff;
+border: 2px solid #909090;
+border-radius: 5px;
+box-shadow: 15px 10px 10px rgba(0,0,0,0.7); 
+color: blue;
+cursor: pointer;
+}
+.oneBird:hover {
+    background-color: #909090;
+    border: 2px solid #fff;
+    transition: 1s;
+}
+.smallPhoto {
+    height: 150px;
+    flex: 200px 0 0;
+    background-size: cover; 
+}
+.smallText {
+    flex:auto;
+    display: flex;
+    padding: 0 20px;
+    flex-direction: column;
+    height: 150px;
+    align-items: space-around;
+    justify-content: space-around;
+}
+.species {
+    font-style: italic;
+}
+.rusName{
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.birdBox {
+    position: fixed;
+    border: 2px solid #909090;
+    border-radius: 10px 10px 0  0;
+    box-shadow: 15px 10px 10px rgba(0,0,0,0.7); 
+    animation: myexpand 1s;
+    animation-fill-mode: forwards;
+    background-size: cover; 
+
+}
+@keyframes myexpand {
+    from {height: 75px; width: 100px; top: calc(50vh - 175px); left: calc(50% - 50px)}
+    to {height: 375px; width: 500px; top: calc(50vh - 287px); left: calc(50% - 250px)}
+}
+@keyframes myexpand360 {
+    from {height: 75px; width: 100px; top: calc(50vh - 175px); left: calc(50% - 50px)}
+    to {height: 225px; width: 300px; top: calc(50vh - 275px); left: calc(50% - 150px)}
+}
+
+
+
+.infoBird {
+    position: fixed;
+    top: calc(50vh + 90px);
+    height: 120px;
+    background-color: #909090;
+    border: 2px solid #909090;
+    color:blue;
+    box-shadow: 15px 10px 10px rgba(0,0,0,0.7); 
+    animation: myexpandtext 1s;
+    animation-fill-mode: forwards;
+    font-style: italic;
+    line-height: 1.3em;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 110px 10px 10px;
+
+}
+@keyframes myexpandtext {
+    from {width: 60px;  font-size: 4px; left: calc(50% - 80px)}
+    to {width: 380px; font-size: 16px; left: calc(50% - 250px)}
+}
+@keyframes myexpandtext360 {
+    from {width: 60px;  font-size: 4px; left: calc(50% - 80px)}
+    to {width: 200px; font-size: 12px; left: calc(50% - 150px)}
+}
+.playerBox {
+    position: fixed;
+    top: calc(50vh + 130px);
+    left: calc(50% + 160px);
+    height: 60px;
+    width: 60px;
+}
+
+.player {
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    background-size: cover;
+    background-image: url('play.svg');
+    cursor: pointer;
+}
+.player:hover {
+    background-color: #505050;
+}
+
+.quizList {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100vh;
+        justify-content: space-around;
+        align-items: space-around;
+}
+
+.quizPhoto {
+    margin: auto;
+    height: 150px;
+    width: 200px;
+    background-size: cover; 
+}
+.questions {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 70%;
+    font-size: 2em;
+    height: 150px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #909090;
+    border-radius: 5px;
+}
+.hint {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    font-size: 12px;
+    color: white;
+}
+.questionTxt {
+    width: 30%;
+    height: 40px;
+}
+.score {
+    width: 25%;
+    height: 40px;
+}
+.progress {
+    flex: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 80%;
+    height: 20px;
+    margin: auto;
+}
+.oneStep {
+    height: 20px;
+    width: 0;
+    border-radius: 0 10px 10px 0;
+    background-color: #00a0a0;
+}
+.circle {
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    
+}
+
+
+.variants {
+    display: flex;
+    flex-wrap: wrap;
+    width: 28%;
+    height: 420px;
+    background-color: #909090;
+    border-radius: 5px;
+}
+.questionString {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    font-size: 1.5em;
+    margin: auto;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+}
+.inviteText {
+    font-size: 3em;
+    padding: 50px 100px;
+}
+
+
+.name {
+    width: 30%;
+    /* margin: 50px 0; */
+    font-size: 3em;
+}
+.description {
+    width: 85%;
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.birdInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 65%;
+    height: 420px;
+    background-color: #909090;
+    border-radius: 5px;
+}
+
+.bigPhoto {
+    width: 300px;
+    height: 225px;
+    background-size: cover;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.playerQuiz {
+    height: 60px;
+    width: 60px;
+}
+.box1 {
+    height: 60px;
+    width: 60px;
+    /* margin: 30px; */
+}
+
+.longButton {
+    display: flex;
+    width: 96.5%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: white;
+    font-size: 1.3em;
+    background-color: #909090;
+    border-radius: 5px;
+}
+
+
+.victoryWindow {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 20px;
+    box-shadow: 15px 10px 10px rgba(0,0,0,0.7); 
+    color: white;
+    animation: myexpand 1s;
+    animation-fill-mode: forwards;
+    background-color: #505050; 
+}
+.victoryHeader, .victoryText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    font-size: 3em;
+}
+.victoryText {
+    font-size: 1.5em;
+}
+.buttonVictory {    
+    display: flex;
+    width: 40%;
+    height: 50px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 1.5em;
+    border: 2px solid #909090;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.7); 
+    background-color:#00a0a0;
+    cursor: pointer;
+}
+.buttonVictory:hover {
+    background-color:#008080;
+}

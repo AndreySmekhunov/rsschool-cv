@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">div
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="bird.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+    <title>SongBird-Quiz</title>
+</head>
+<body id = 'body'>
+    <audio id = 'audioQuiz' src=""></audio>
+    <audio id = 'audioDescription' src=""></audio>
+    <audio id = 'yesOrNo' src=""></audio>
+    <div class = "quizList">
+        <div id = "small" class = "quizPhoto"></div>
+        <div class = "questions">
+            <div class = "hint"></div>
+            <div class = "questionTxt"></div>
+            <div class = 'score'></div>
+            <div class = "box1">
+                <div id = "playerQuiz" class = "player"></div>
+            </div>
+
+            <div class = 'progress'>
+                <div class = "oneStep"></div>
+            </div>
+        </div>
+        <div  id = "quiz" class = "variants"></div>
+        <div class = "birdInfo">
+            <p class = "inviteText">Прослушайте голос и попробуйте угадать название птицы</p>
+            <div id = "bigPhoto" class = "bigPhoto"></div>
+            <div class = "playerQuiz">
+                <div id = "playerDescription" class="player"></div>
+            </div>
+            <div id = "name" class = "name"></div>
+            <div id = "description" class = "description"></div>
+        </div>   
+        <div class = "longButton"><p>Следующий  вопрос</p></div>
+    </div>
+
+    <script type = 'module' src="quiz.js"></script> 
+</body>
+</html>
