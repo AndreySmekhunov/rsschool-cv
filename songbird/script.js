@@ -10,7 +10,7 @@ audio.addEventListener('ended', endPlay);
 
 for (let i = 0; i < birdsData.length; i++) {
         let el = document.createElement('div');
-        el.id = i.toString();
+        el.id = (i+1).toString();
         el.className = 'oneBird';
         let picture = document.createElement('div');
         picture.className = 'smallPhoto';
@@ -30,7 +30,7 @@ for (let i = 0; i < birdsData.length; i++) {
         el.append(name);
         list.append(el);
 }
-document.getElementById('birdList').addEventListener('click', showBird);
+list.addEventListener('click', showBird);
 
 function showBird(e) {
     if (isOpen) return;
@@ -39,6 +39,10 @@ function showBird(e) {
     
     let num = Number(target.parentNode.id);
     if (isNaN(num))  return;
+    console.log(num);
+    if (!num) return;
+    console.log(num);
+    num -= 1;
     isOpen = true;   
     audio.src = birdsData[num].audio;   
     let birdBox = document.createElement('div');
